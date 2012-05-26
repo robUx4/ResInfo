@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ResInfo</string>
+    <string name="share">Share</string>
+    <string name="share_subjet">ResInfo on %1$s</string>
+    <string name="share_size">Screen Size: %1$s</string>
+    <string name="share_density">Screen Density: %1$s</string>
+    <string name="share_aspect">Screen Aspect: %1$s</string>
+    <string name="share_touchscreen">Touchscreen: %1$s</string>
+    <string name="share_night">Night Mode: %1$s</string>
+    <string name="share_navstate">Navigation Mode: %1$s</string>
+    <string name="share_navmethod">Navigation Method: %1$s</string>
+    <string name="share_keyboard">Keyboard Type: %1$s</string>
+    <string name="share_textinput">Physical Keys: %1$s</string>
+    
+</resources>

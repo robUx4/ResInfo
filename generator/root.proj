@@ -1,0 +1,15 @@
+CONFIG_FILE config.h
+PLATFORM_FILES corec/tools/coremake
+
+#include "*/*.proj"
+
+CON generator
+{
+  USE parser
+  SOURCE generator.c
+}
+
+WORKSPACE generator
+{
+  USE generator
+}

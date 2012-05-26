@@ -1,0 +1,18 @@
+#include "*/*.proj"
+
+GROUP corec
+{
+  INCLUDE ..
+  EXPINCLUDE ..
+  DEFINE HAVE_COREC_H
+  EXPDEFINE HAVE_COREC_H
+  HEADER corec.h
+  HEADER err.h
+  HEADER helper.h
+  HEADER memalloc.h
+  HEADER portab.h
+  IF CONFIG_SAFE_C
+    HEADER banned.h
+  ENDIF
+  HEADER(!COREMAKE_CONFIG_HELPER) confhelper.h
+}

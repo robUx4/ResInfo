@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="res_size">none</string>
+  <string name="res_density">none</string>
+  <string name="res_touchscreen">none</string>
+  <string name="res_night">none</string>
+  <string name="res_keyboard">none</string>
+  <string name="res_textinput">none</string>
+  <string name="res_navstate">none</string>
+  <string name="res_navmethod">none</string>
+  <string name="res_aspect">none</string>
+</resources>
