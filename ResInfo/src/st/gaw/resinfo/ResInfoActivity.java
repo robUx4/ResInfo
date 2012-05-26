@@ -16,16 +16,14 @@ public class ResInfoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		String apiVersion;
+		@SuppressWarnings("deprecation")
+		final String apiVersion = android.os.Build.VERSION.SDK;
 		String manufacturer;
 		try {
-			apiVersion = ApiLevel4.getApiVersion();
 			manufacturer = ApiLevel4.getBuildManufacturer()+" ";
 		} catch (VerifyError e) {
-			apiVersion = "3";
 			manufacturer = "";
 		}
-		final String API = apiVersion;
 
 		Display display = getWindowManager().getDefaultDisplay();
 		final Point screenSize = new Point();
@@ -41,7 +39,7 @@ public class ResInfoActivity extends Activity {
 		device.setText(deviceName);
 
 		TextView api = (TextView) findViewById(R.id.textViewAPI);
-		api.setText("API v" + API + " ("+android.os.Build.VERSION.RELEASE+")");
+		api.setText("API v" + apiVersion + " ("+android.os.Build.VERSION.RELEASE+")");
 
 		TextView size = (TextView) findViewById(R.id.textViewSize);
 		size.setText(getString(R.string.res_size) + " (" + screenSize.y+"x"+screenSize.x+")");
@@ -60,7 +58,7 @@ public class ResInfoActivity extends Activity {
 				StringBuilder shareText = new StringBuilder();
 				
 				shareText.append("API v");
-				shareText.append(API);
+				shareText.append(apiVersion);
 				shareText.append(" (");
 				shareText.append(android.os.Build.VERSION.RELEASE);
 				shareText.append(")\n");
