@@ -42,13 +42,16 @@ public class ResInfoActivity extends Activity {
 		api.setText("API v" + apiVersion + " ("+android.os.Build.VERSION.RELEASE+")");
 
 		TextView size = (TextView) findViewById(R.id.textViewSize);
-		size.setText(getString(R.string.res_size) + " (" + screenSize.y+"x"+screenSize.x+")");
+		if (screenSize.y > screenSize.x)
+			size.setText(getString(R.string.res_size) + " (" + screenSize.y+"x"+screenSize.x+")");
+		else
+			size.setText(getString(R.string.res_size) + " (" + screenSize.x+"x"+screenSize.y+")");
 
 		TextView density = (TextView) findViewById(R.id.textViewDensity);
 		final DisplayMetrics metrics = new DisplayMetrics();
 		display.getMetrics(metrics);
 		density.setText(getString(R.string.res_density) + " ("+((int) (metrics.density*160))+" dpi)");
-		
+
 		View share = findViewById(R.id.buttonShare);
 		share.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -56,16 +59,19 @@ public class ResInfoActivity extends Activity {
 				emailIntent.setType("text/plain"); 
 				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.share_subjet, deviceName));
 				StringBuilder shareText = new StringBuilder();
-				
+
 				shareText.append("API v");
 				shareText.append(apiVersion);
 				shareText.append(" (");
 				shareText.append(android.os.Build.VERSION.RELEASE);
 				shareText.append(")\n");
 
-				shareText.append(getString(R.string.share_size, getString(R.string.res_size).toLowerCase() + " (" + screenSize.y+"x"+screenSize.x+")"));
+				if (screenSize.y > screenSize.x)
+					shareText.append(getString(R.string.share_size, getString(R.string.res_size).toLowerCase() + " (" + screenSize.y+"x"+screenSize.x+")"));
+				else
+					shareText.append(getString(R.string.share_size, getString(R.string.res_size).toLowerCase() + " (" + screenSize.x+"x"+screenSize.y+")"));
 				shareText.append("\n");
-				
+
 				shareText.append(getString(R.string.share_density, getString(R.string.res_density).toLowerCase() + " ("+((int) (metrics.density*160))+" dpi)"));
 				shareText.append("\n");
 
@@ -74,24 +80,24 @@ public class ResInfoActivity extends Activity {
 
 				shareText.append(getString(R.string.share_touchscreen, getString(R.string.res_touchscreen).toLowerCase()));
 				shareText.append("\n");
-				
+
 				shareText.append(getString(R.string.share_night, getString(R.string.res_night).toLowerCase()));
 				shareText.append("\n");
-				
+
 				shareText.append(getString(R.string.share_navstate, getString(R.string.res_navstate).toLowerCase()));
 				shareText.append("\n");
-				
+
 				shareText.append(getString(R.string.share_navmethod, getString(R.string.res_navmethod).toLowerCase()));
 				shareText.append("\n");
-				
+
 				shareText.append(getString(R.string.share_keyboard, getString(R.string.res_keyboard).toLowerCase()));
 				shareText.append("\n");
-				
+
 				shareText.append(getString(R.string.share_textinput, getString(R.string.res_textinput).toLowerCase()));
 				shareText.append("\n");
 
 				shareText.append("\nhttps://play.google.com/store/apps/details?id=st.gaw.resinfo");
-				
+
 				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText.toString());
 				startActivity(Intent.createChooser(emailIntent, getString(R.string.share_subjet, android.os.Build.MODEL))); 
 			}
