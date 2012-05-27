@@ -10,6 +10,8 @@ static tchar_t *TextInput[] = {T("nokeys"), T("qwerty"), T("12key")};
 static tchar_t *NavigationState[] = {T("navhidden"), T("navexposed")};
 static tchar_t *NavigationMethod[] = {T("nonav"), T("dpad"), T("trackball"), T("wheel")};
 static tchar_t *Aspect[] = {T("long"), T("notlong")};
+static tchar_t *Orientation[] = {T("port"), T("land"), T("square")};
+static tchar_t *Mode[] = {T("car"), T("desk"), T("television")}; // "normal" goes in fallback as it's already in Size
 
 #if 0
 static void OutputValues(parsercontext *p, size_t size, size_t night, size_t density, size_t touchscreen, size_t keyboard, size_t textinput, size_t navstate, size_t navmethod)
@@ -145,6 +147,8 @@ int main(void)
 	OutputArrayValues(&p, T("navstate"), NavigationState, sizeof(NavigationState)/sizeof(tchar_t*));
 	OutputArrayValues(&p, T("navmethod"), NavigationMethod, sizeof(NavigationMethod)/sizeof(tchar_t*));
 	OutputArrayValues(&p, T("aspect"), Aspect, sizeof(Aspect)/sizeof(tchar_t*));
+	OutputArrayValues(&p, T("orientation"), Orientation, sizeof(Orientation)/sizeof(tchar_t*));
+	OutputArrayValues(&p, T("uimode"), Mode, sizeof(Mode)/sizeof(tchar_t*));
 
 #if 0
 	for (size = 0; size < sizeof(Size)/sizeof(tchar_t*); ++size)
