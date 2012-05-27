@@ -8,7 +8,7 @@ import android.view.Display;
 @TargetApi(13)
 public class ApiLevel13 {
 
-	public static void getScreenSize(Activity activity, Point screenSize) throws VerifyError {
+	public static void getScreenSize(Activity activity, Point screenSize) throws VerifyError, NoSuchMethodError {
 		Display display = activity.getWindowManager().getDefaultDisplay();
 		display.getSize(screenSize);
 	}

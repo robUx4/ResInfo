@@ -18,17 +18,20 @@ public class ResInfoActivity extends Activity {
 
 		@SuppressWarnings("deprecation")
 		final String apiVersion = android.os.Build.VERSION.SDK;
-		String manufacturer;
+		String manufacturer = "";
 		try {
 			manufacturer = ApiLevel4.getBuildManufacturer()+" ";
+		} catch (NoSuchMethodError e) {
 		} catch (VerifyError e) {
-			manufacturer = "";
 		}
 
 		Display display = getWindowManager().getDefaultDisplay();
 		final Point screenSize = new Point();
 		try {
 			ApiLevel13.getScreenSize(this, screenSize);
+		} catch (NoSuchMethodError e) {
+			screenSize.x = display.getWidth();
+			screenSize.y = display.getHeight();
 		} catch (VerifyError e) {
 			screenSize.x = display.getWidth();
 			screenSize.y = display.getHeight();
