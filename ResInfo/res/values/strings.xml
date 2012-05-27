@@ -13,5 +13,7 @@
     <string name="share_navmethod">Navigation Method: %1$s</string>
     <string name="share_keyboard">Keyboard Type: %1$s</string>
     <string name="share_textinput">Physical Keys: %1$s</string>
+    <string name="share_orientation">Orientation: %1$s</string>
+    <string name="share_uimode">UI Mode: %1$s</string>
     
 </resources>

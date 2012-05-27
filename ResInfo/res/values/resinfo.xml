@@ -9,4 +9,6 @@
   <string name="res_navstate">none</string>
   <string name="res_navmethod">none</string>
   <string name="res_aspect">none</string>
+  <string name="res_orientation">none</string>
+  <string name="res_uimode">NORMAL</string>
 </resources>

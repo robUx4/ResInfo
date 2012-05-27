@@ -75,6 +75,12 @@ public class ResInfoActivity extends Activity {
 				shareText.append(getString(R.string.share_density, getString(R.string.res_density).toLowerCase() + " ("+((int) (metrics.density*160))+" dpi)"));
 				shareText.append("\n");
 
+				shareText.append(getString(R.string.share_orientation, getString(R.string.res_orientation).toLowerCase()));
+				shareText.append("\n");
+
+				shareText.append(getString(R.string.share_uimode, getString(R.string.res_uimode).toLowerCase()));
+				shareText.append("\n");
+
 				shareText.append(getString(R.string.share_aspect, getString(R.string.res_aspect).toLowerCase()));
 				shareText.append("\n");
 
